@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cdac.kiosk.controller.MainController">
+    <top>
+        <HBox styleClass="padding, bg-color-bright-blue">
+            <ImageView preserveRatio="true">
+                <Image url="@../img/navy_logo.png"/>
+            </ImageView>
+        </HBox>
+    </top>
+    <left>
+        <HBox styleClass="padding">
+            <HBox fx:id="_imgContainer" styleClass="img-container">
+                <ImageView fitWidth="${_imgContainer.prefWidth}" fitHeight="${_imgContainer.prefHeight}"
+                           preserveRatio="true">
+                    <Image url="@../img/home_new.png"/>
+                </ImageView>
+            </HBox>
+            <Label styleClass="press-effect, padding-small, bg-border-radius-small" text="HOME"/>
+        </HBox>
+    </left>
+    <right>
+        <HBox styleClass="padding">
+            <HBox styleClass="img-container">
+                <ImageView fitWidth="${_imgContainer.prefWidth}" fitHeight="${_imgContainer.prefHeight}"
+                           preserveRatio="true">
+                    <Image url="@../gif/settings.gif"/>
+                </ImageView>
+            </HBox>
+            <Button styleClass="padding-small, press-effect, bg-border-radius-small" text="SETTINGS"
+                    onAction="#onSettings"/>
+        </HBox>
+    </right>
+    <center>
+        <VBox alignment="CENTER">
+            <HBox alignment="CENTER">
+                <VBox alignment="CENTER">
+                    <!--  id: _imgContainerXLarge -> only used in fxml expression       -->
+                    <!--  using prefWidth and prefHeight of the container, child image's size will be set.       -->
+                    <HBox fx:id="_imgContainerXLarge" styleClass="img-container-xxlarge" alignment="CENTER">
+                        <ImageView fitWidth="${_imgContainerXLarge.prefWidth}"
+                                   fitHeight="${_imgContainerXLarge.prefHeight}"
+                                   preserveRatio="true">
+                            <Image url="@../img/kiosk.png"/>
+                        </ImageView>
+                    </HBox>
+                    <Region styleClass="min-height-medium"/>
+                    <Button fx:id="startKioskBtn" styleClass="btn-large, press-effect" disable="true"
+                            text="Start Kiosk"/>
+                </VBox>
+            </HBox>
+            <VBox fx:id="onboardMsgVBox" alignment="BASELINE_CENTER" managed="false" visible="false">
+                <Region styleClass="min-height-xlarge"/>
+                <Region styleClass="min-height-xlarge"/>
+                <Label styleClass="font-size-medium"
+                       text="Click the Settings button to begin the system onboarding process."/>
+            </VBox>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox styleClass="padding, bg-color-bright-blue" alignment="CENTER">
+            <Label styleClass="text-white" text="${controller.appVersion}"/>
+        </HBox>
+    </bottom>
+</BorderPane>
