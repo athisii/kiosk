@@ -68,7 +68,7 @@ public class OnboardAuthController extends AbstractBaseController {
                 // Hardware Type Mapping:
                 //      PES - 1
                 //      FES - 2
-                OnboardingResDto onboardingResDto = MafisServerApi.fetchOnboardingDetails(new OnboardingReqDto(username, "2"));
+                OnboardingResDto onboardingResDto = MafisServerApi.fetchOnboardingDetails(new OnboardingReqDto(username, "3"));
                 App.setPno(username);
                 App.setOnboardingUnitDetails(onboardingResDto.getOnboardingUnitDetails());
                 // must set on JavaFX thread.
